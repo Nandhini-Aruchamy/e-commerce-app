@@ -1,0 +1,10 @@
+<mat-grid-list cols="3" gutterSize="16">
+  @for(product of productList(); track product.id){
+  <mat-grid-tile>
+    <app-product-box
+      [product]="product"
+      (addToCart)="onAddToCart($event)"
+    ></app-product-box>
+  </mat-grid-tile>
+  }
+</mat-grid-list>
