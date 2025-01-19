@@ -12,9 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadge } from '@angular/material/badge';
 import { MatMenuModule } from '@angular/material/menu';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CartService } from '../services/cart/cart.service';
-
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -32,9 +31,12 @@ import { CartService } from '../services/cart/cart.service';
 })
 export class HeaderComponent {
   cartService = inject(CartService);
-  get test() {
-    console.count('header getter');
-    return 'getter';
-  }
+  router = inject(Router);
   cartItemCount = this.cartService.getCartItemsCount();
+
+  logout(): void {
+    console.log('logout');
+    sessionStorage.removeItem('loggedinUser');
+    this.router.navigate(['/login']);
+  }
 }

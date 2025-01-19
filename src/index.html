@@ -1,15 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>ECommerceApp</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body class="mat-typography">
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>ECommerceApp</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <!-- Function to handle the JWT response -->
+    <script>
+      function decodeJWTToken(token) {
+        return JSON.parse(atob(token.split(".")[1]));
+      }
+      function handleOauthResponse(response) {
+        const responsePayload = decodeJWTToken(response.credential);
+        console.log(responsePayload);
+        sessionStorage.setItem("loggedinUser", JSON.stringify(responsePayload));
+        window.location.href = "/products";
+      }
+    </script>
+  </head>
+  <body class="mat-typography">
+    <app-root></app-root>
+  </body>
 </html>

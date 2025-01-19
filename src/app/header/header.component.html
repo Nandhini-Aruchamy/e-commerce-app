@@ -1,6 +1,6 @@
 <mat-toolbar class="justify-between">
   <span>ECommerce App</span>
-  <div>{{ test }}</div>
+  <button mat-button (click)="logout()">Logout</button>
   <button
     mat-icon-button
     matBadge="{{ cartItemCount() }}"

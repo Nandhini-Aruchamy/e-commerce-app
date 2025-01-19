@@ -1,4 +1,9 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  inject,
+  ChangeDetectionStrategy,
+  PLATFORM_ID,
+} from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ProductsService } from '../../services/products/products.service';
 import { ProductList } from '../../models/product';
@@ -18,8 +23,15 @@ import { toSignal } from '@angular/core/rxjs-interop';
 export class ProductsComponent {
   productService = inject(ProductsService);
   cartService = inject(CartService);
+  platform_id = inject(PLATFORM_ID);
 
   productList = toSignal(this.productService.getAllProducts());
+
+  constructor() {
+    console.log(this.platform_id);
+    if (this.platform_id == 'browser')
+      console.log(sessionStorage.getItem('loggedinUser'));
+  }
 
   onAddToCart(product: ProductList) {
     this.cartService.addToCart(product);
