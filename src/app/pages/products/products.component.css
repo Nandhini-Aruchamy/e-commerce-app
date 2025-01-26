@@ -1,0 +1,4 @@
+app-product-box {
+  width: calc(100% - 70px);
+  height: calc(100% - 70px);
+}
