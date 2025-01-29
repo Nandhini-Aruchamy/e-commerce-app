@@ -11,7 +11,15 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: aactions/checkout@v4
+
+      - name: setup node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+
+      - name: install dependencies
+        run: npm install
 
       - name: Build Angular App
         run: npm run build -- --base-href="/e-commerce-app/"
