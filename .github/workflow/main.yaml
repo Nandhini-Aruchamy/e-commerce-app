@@ -1,0 +1,22 @@
+name: Build and Deploy Script
+
+on:
+  push:
+    branches:
+      - create-product-list-page # Change this if your main branch has a different name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build Angular App
+        run: npm run build -- --base-href="/e-commerce-app/"
+
+      - name: Deploy to GitHub Pages
+        run: npx angular-cli-ghpages --dir=dist/e-commerce-app
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
