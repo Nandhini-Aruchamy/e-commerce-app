@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: aactions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: setup node.js
         uses: actions/setup-node@v4
