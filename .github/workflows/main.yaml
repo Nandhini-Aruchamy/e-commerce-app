@@ -12,14 +12,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: setup node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18.x
-
-      - name: install dependencies
-        run: npm install
-
       - name: Ensure angular-cli-ghpages is Installed
         run: npm install angular-cli-ghpages --save-dev
 
@@ -30,4 +22,4 @@ jobs:
         run: npx angular-cli-ghpages --dir=dist/e-commerce-app
         env:
           CI: true
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
