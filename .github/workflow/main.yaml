@@ -2,8 +2,7 @@ name: Build and Deploy Script
 
 on:
   push:
-    branches:
-      - create-product-list-page # Change this if your main branch has a different name
+    branches: [create-product-list-page] # Change this if your main branch has a different name
 
 jobs:
   build:
