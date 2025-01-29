@@ -19,7 +19,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        run: npm run deploy --base-href=https://Nandhini-Aruchamy.github.io/e-commerce-app/
+        run: npm run ng -- deploy --base-href=https://Nandhini-Aruchamy.github.io/e-commerce-app/
         env:
           CI: true
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
