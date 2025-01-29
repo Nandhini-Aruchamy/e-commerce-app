@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Build Angular App
-        run: npm run build -- --base-href="/e-commerce-app/"
+        run: ng build --configuration=production --base-href=https://Nandhini-Aruchamy.github.io/e-commerce-app/
 
       - name: Deploy to GitHub Pages
         run: npx angular-cli-ghpages --dir=dist/e-commerce-app
