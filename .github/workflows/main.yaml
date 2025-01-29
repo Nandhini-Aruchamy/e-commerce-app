@@ -16,10 +16,10 @@ jobs:
         run: npm install angular-cli-ghpages --save-dev
 
       - name: Build Angular App
-        run: npm run build --configuration=production --base-href=https://Nandhini-Aruchamy.github.io/e-commerce-app/
+        run: npm run build
 
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages
+        run: npm run deploy --base-href=https://Nandhini-Aruchamy.github.io/e-commerce-app/
         env:
           CI: true
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
