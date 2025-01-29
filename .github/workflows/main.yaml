@@ -20,6 +20,9 @@ jobs:
       - name: install dependencies
         run: npm install
 
+      - name: Ensure angular-cli-ghpages is Installed
+        run: npm install angular-cli-ghpages --save-dev
+
       - name: Build Angular App
         run: npm run build --configuration=production --base-href=https://Nandhini-Aruchamy.github.io/e-commerce-app/
 
@@ -27,4 +30,4 @@ jobs:
         run: npx angular-cli-ghpages --dir=dist/e-commerce-app
         env:
           CI: true
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
