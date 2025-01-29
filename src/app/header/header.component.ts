@@ -32,9 +32,5 @@ import { CartService } from '../services/cart/cart.service';
 })
 export class HeaderComponent {
   cartService = inject(CartService);
-  get test() {
-    console.count('header getter');
-    return 'getter';
-  }
   cartItemCount = this.cartService.getCartItemsCount();
 }
