@@ -22,10 +22,6 @@ import { CurrencyPipe } from '@angular/common';
 export class ProductBoxComponent {
   @Input() product: ProductList | undefined;
   @Output() addToCart = new EventEmitter<ProductList>();
-  get test() {
-    console.count('productbox getter');
-    return 'test';
-  }
   onAddToCart() {
     this.addToCart.emit(this.product);
   }
